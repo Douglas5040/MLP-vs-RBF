@@ -1,3 +1,16 @@
+'''
+Instituto de Ciencias Matematicas e de Computacao - USP São Carlos
+SCC5809: Redes Neurais
+
+Exercício 03: MLP + RBF
+Equipe:
+ID. Matricula (01) - 12116252 Dheniffer Caroline Araújo Pessoa
+
+ID. Matricula (02) - 12114819 Douglas Queiroz Galucio Batista 
+
+ID. Matricula (03) - 12116738 Laleska Mesquita
+'''
+
 import numpy as np
 from RNDataset import RNData
 from RNModels import RBFNet, MLPNet
@@ -9,9 +22,9 @@ def main():
            'MLP TN': np.zeros(qtd_rodadas), 'MLP TS': np.zeros(qtd_rodadas)}
     
     for i in range(qtd_rodadas):
-        print('############## Executando rodada ' + str(i + 1) + ' ##############\n')
+        print(' ******* Executando rodada ' + str(i + 1) + ' *******\n')
         
-        # Carregando os dados da web (https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data)
+        # Carregando a base de dados da web (https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data)
         X, y = RNData.getWinesData(normalize = True, binarize = True)
         X_train, X_test, y_train, y_test = RNData.divCamadas(X, y, 0.2)
         # print('X_train: ',X_train)
@@ -26,8 +39,8 @@ def main():
         log['RBF TN'][i] = rbf.evaluate(X_train, y_train)
         log['RBF TS'][i] = rbf.evaluate(X_test, y_test)
         
-        print('>> RBF Acurácia - training: ' + str(round(log['RBF TN'][i],3)) + ' %')
-        print('>> RBF Acurácia - testing: ' + str(round(log['RBF TS'][i],3)) + ' %\n')
+        print('>> RBF Acurácia - treino: ' + str(round(log['RBF TN'][i],3)) + ' %')
+        print('>> RBF Acurácia - teste: ' + str(round(log['RBF TS'][i],3)) + ' %\n')
         
         rbf = RBFNet(X_train.shape[1], 1, y_train.shape[1])
         rbf.train(X_train, y_train)
@@ -51,11 +64,11 @@ def main():
     
     plt.xlabel('Rodadas')
     plt.ylabel('Acurácia (%)')
-    plt.title("Performace da MLP vs RBF")
+    plt.title("Performance da rede MLP vs RBF")
     plt.tight_layout()
     plt.show()
     
-    print('############## Fim =) ##############')
+    print('****** Fim =) ******')
 
 if __name__ == '__main__':
     main()

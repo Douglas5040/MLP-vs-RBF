@@ -1,3 +1,16 @@
+'''
+Instituto de Ciencias Matematicas e de Computacao - USP São Carlos
+SCC5809: Redes Neurais
+
+Exercício 03: MLP + RBF
+Equipe:
+ID. Matricula (01) - 12116252 Dheniffer Caroline Araújo Pessoa
+
+ID. Matricula (02) - 12114819 Douglas Queiroz Galucio Batista 
+
+ID. Matricula (03) - 12116738 Laleska Mesquita
+'''
+
 from math import sqrt
 import numpy as np
 

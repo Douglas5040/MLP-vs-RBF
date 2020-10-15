@@ -1,3 +1,16 @@
+'''
+Instituto de Ciencias Matematicas e de Computacao - USP São Carlos
+SCC5809: Redes Neurais
+
+Exercício 03: MLP + RBF
+Equipe:
+ID. Matricula (01) - 12116252 Dheniffer Caroline Araújo Pessoa
+
+ID. Matricula (02) - 12114819 Douglas Queiroz Galucio Batista 
+
+ID. Matricula (03) - 12116738 Laleska Mesquita
+'''
+
 from random import shuffle
 import numpy as np
 import urllib.request
@@ -6,7 +19,8 @@ class RNData():
     
     @staticmethod
     def getWinesData(normalize = False, binarize = True):
-        #carregando e baixando dados da web arquivo wine.data
+
+        #carregando e baixando a base de dados da web arquivo 'wine.data'
         target_url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data'
         
         data = urllib.request.urlopen(target_url).read().split(b'\n')
@@ -50,7 +64,7 @@ class RNData():
     def divCamadas(X, y, test_split):
         data_map = {}
         
-        # split dataset according to each class
+        # divisão do conjunto de dados de acordo com cada classe
         for idx, ex in enumerate(X):
             if str(y[idx]) not in data_map.keys():
                 data_map[str(y[idx])] = [(ex, y[idx])]
@@ -62,7 +76,7 @@ class RNData():
         y_train = []
         y_test = []
         
-        # shuffle the lists and get a share of each class
+        # "Embaralhando" as listas e obtendo uma parte de cada classe
         for set_ in data_map.values():
             shuffle(set_)
             limit = round(test_split * len(set_))
