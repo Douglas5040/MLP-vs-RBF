@@ -1,14 +1,3 @@
-'''
-Created on Sep 30, 2018
-
-Universidade de Sao Paulo - USP São Carlos
-Instituto de Ciencias Matematicas e de Computacao
-SCC5809: Redes Neurais
-
-Exercise 3: MLP + RBF
-@author: Damares Resende
-'''
-
 from math import sqrt
 import numpy as np
 
